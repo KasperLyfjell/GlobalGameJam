@@ -5,10 +5,12 @@ using UnityEngine;
 public class Flower : MonoBehaviour
 {
     public GameObject fire;
+    Animator anim;
 
     // Start is called before the first frame update
     void Start()
     {
+        anim = GetComponent<Animator>();
         fire.SetActive(false);
     }
 
@@ -28,6 +30,7 @@ public class Flower : MonoBehaviour
         if (other.tag == "Water")
         {
             fire.SetActive(false);
+            anim.SetBool("Grow", true);
         }
     }
 }
