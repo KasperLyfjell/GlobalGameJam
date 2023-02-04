@@ -24,5 +24,10 @@ public class LightWithFire : MonoBehaviour
         {
             fire.SetActive(true);
         }
+
+        if (other.tag == "Water")
+        {
+            fire.SetActive(false);
+        }
     }
 }

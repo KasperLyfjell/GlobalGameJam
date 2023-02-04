@@ -14,6 +14,9 @@ public class PlayerMovement : MonoBehaviour
     public GameObject fireball;
     public GameObject firepoint;
 
+    public GameObject water;
+    public GameObject waterpoint;
+
     private void Start()
     {
         controller = gameObject.AddComponent<CharacterController>();
@@ -34,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(playerVelocity * Time.deltaTime);
 
         //Watering Can
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKey(KeyCode.Mouse0))
         {
             UseWateringCan();
         }
@@ -54,6 +57,7 @@ public class PlayerMovement : MonoBehaviour
     void UseWateringCan()
     {
         canAnim.SetBool("Tilt", true);
+        Instantiate(water, waterpoint.transform.position, waterpoint.transform.rotation);
     }
 
     void StopWateringCan()
