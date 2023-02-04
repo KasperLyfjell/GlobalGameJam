@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     private CharacterController controller;
     private Vector3 playerVelocity;
     private float playerSpeed = 2.0f;
+    private float gravityValue = -9.81f;
 
     public GameObject wateringCan;
     Animator canAnim;
@@ -34,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
             gameObject.transform.forward = move;
         }
 
+        playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
 
         //Watering Can
